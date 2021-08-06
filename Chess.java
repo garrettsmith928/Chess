@@ -1,14 +1,8 @@
 import java.awt.GridLayout;
 import java.util.ArrayList;
-import java.util.Scanner;
 import java.awt.event.*;
-import java.io.File;
 import java.io.IOException;
-import java.net.URL;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.awt.*;
-
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
