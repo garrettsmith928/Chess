@@ -4,6 +4,9 @@ import java.util.Scanner;
 import java.awt.event.*;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.awt.*;
 
 import javax.imageio.ImageIO;
@@ -226,28 +229,23 @@ public class Chess extends JFrame {
 	}
 	
 	public static void grabImages() throws IOException{
-		icons[0] = loadImage("black", "Bishop");
-		icons[1] = loadImage("black", "King");
-		icons[2] = loadImage("black", "Knight");
-		icons[3] = loadImage("black", "Pawn");
-		icons[4] = loadImage("black", "Queen");
-		icons[5] = loadImage("black", "Rook");
-		icons[6] = loadImage("white", "Bishop");
-		icons[7] = loadImage("white", "King");
-		icons[8] = loadImage("white", "Knight");
-		icons[9] = loadImage("white", "Pawn");
+		icons[0]  = loadImage("black", "Bishop");
+		icons[1]  = loadImage("black", "King");
+		icons[2]  = loadImage("black", "Knight");
+		icons[3]  = loadImage("black", "Pawn");
+		icons[4]  = loadImage("black", "Queen");
+		icons[5]  = loadImage("black", "Rook");
+		icons[6]  = loadImage("white", "Bishop");
+		icons[7]  = loadImage("white", "King");
+		icons[8]  = loadImage("white", "Knight");
+		icons[9]  = loadImage("white", "Pawn");
 		icons[10] = loadImage("white", "Queen");
 		icons[11] = loadImage("white", "Rook");
 	}
 	
 	public static Icon loadImage(String color, String name) throws IOException{
-		String localImage = color + name + ".png";
-		File png = new File(localImage);
-        String absolute = png.getAbsolutePath();
-        absolute = absolute.replace(localImage, "");
-        absolute = absolute + "src\\resources\\" + localImage;
-        png = new File(absolute);
-        img = ImageIO.read(png);
+		String localImage = "resources/" + color + name + ".png";
+		Image img = ImageIO.read(Chess.class.getResource(localImage));
         img = img.getScaledInstance(gridSize, gridSize, java.awt.Image.SCALE_SMOOTH);
         ImageIcon icon = new ImageIcon(img);
         return icon;
